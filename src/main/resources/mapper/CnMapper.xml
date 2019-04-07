@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="com.kai.dai.fanyi.dao.CnDao">
+
+
+    <select id="getBySrc" parameterType="java.lang.String" resultMap="CnMapping">
+		SELECT * FROM cn_translate WHERE src = #{src}
+	</select>
+
+    <insert id="insertCn" parameterType="com.kai.dai.fanyi.model.bean.Cn">
+        insert into cn_translate (src,dest) values(#{src},#{dest})
+    </insert>
+
+    <!-- 通过<resultMap>映射实体类属性名和表的字段名对应关系 -->
+    <resultMap id="CnMapping" type="Cn">
+        <!-- id属性来映射主键字段 -->
+        <!--        <id column="create_ts" property="createTs" javaType="Date"/>-->
+        <!-- result属性映射非主键字段 -->
+        <result column="update_ts" property="updateTs" javaType="Date"/>
+        <result column="create_ts" property="createTs" javaType="Date"/>
+    </resultMap>
+
+</mapper>

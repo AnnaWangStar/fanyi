@@ -6,10 +6,11 @@ import java.nio.file.Path;
 import java.util.stream.Collectors;
 
 public class FileFeature {
-    public static Path path = Path.of("C:\\2018\\qunargit\\fanyi\\src\\main\\resources\\folder\\", "english.txt");
+    public static Path path = Path.of("C:\\2018\\qunargit\\fanyi\\src\\main\\resources\\folder\\", "demowrite.txt");
 
     public static void main(String[] args) throws IOException {
-        readFile();
+//        readFile();
+        writeFile();
     }
 
     private static void readFile() throws IOException {
@@ -20,5 +21,14 @@ public class FileFeature {
         System.out.println("---------------------------------");
         result = Files.readString(path);
         System.out.println(result);
+    }
+
+    private static void writeFile() {
+        String demo = "dd";
+        try {
+            Files.writeString(path, demo);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

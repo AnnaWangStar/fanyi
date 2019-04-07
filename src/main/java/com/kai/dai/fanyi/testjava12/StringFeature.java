@@ -5,5 +5,6 @@ public class StringFeature {
         String str ="　adcd订单 dd ";
         System.out.println(str.trim());
         System.out.println(str.strip());
+
     }
 }
